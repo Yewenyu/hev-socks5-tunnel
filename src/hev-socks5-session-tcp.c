@@ -308,8 +308,9 @@ hev_socks5_session_tcp_destruct (HevObject *base)
         tcp_sent (self->pcb, NULL);
         tcp_err (self->pcb, NULL);
 
-        if (tcp_close (self->pcb) != ERR_OK)
-            tcp_abort (self->pcb);
+        // if (tcp_close (self->pcb) != ERR_OK)
+        //     tcp_abort (self->pcb);
+        tcp_abort (self->pcb);
     }
 
     if (self->queue)
